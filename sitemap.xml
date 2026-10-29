@@ -1,14 +1,71 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://prabhanshtiwari.com/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://prabhanshtiwari.com/projects.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://prabhanshtiwari.com/projects/pn-central-academy.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://prabhanshtiwari.com/projects/bootle-village-stores.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://prabhanshtiwari.com/projects/dynamic-weather-dashboard.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://prabhanshtiwari.com/projects/quiz-game.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://prabhanshtiwari.com/projects/job-portal.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://prabhanshtiwari.com/education/bca-united-university.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://prabhanshtiwari.com/education/mca-chandigarh-university.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://prabhanshtiwari.com/experience/edunet-foundation.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://prabhanshtiwari.com/certificates.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <url>
+    <loc>https://www.prabhanshtiwari.com/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://www.prabhanshtiwari.com/projects.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.prabhanshtiwari.com/projects/pn-central-academy.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.prabhanshtiwari.com/projects/bootle-village-stores.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.prabhanshtiwari.com/projects/dynamic-weather-dashboard.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.prabhanshtiwari.com/projects/quiz-game.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.prabhanshtiwari.com/projects/job-portal.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.prabhanshtiwari.com/education/bca-united-university.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.prabhanshtiwari.com/education/mca-chandigarh-university.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.prabhanshtiwari.com/experience/edunet-foundation.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.prabhanshtiwari.com/certificates.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
