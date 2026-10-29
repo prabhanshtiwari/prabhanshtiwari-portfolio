@@ -1,263 +1,639 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Job Portal is a full-stack MERN application with separate student and recruiter workflows for discovering jobs, applying, tracking applications and managing job listings.">
-  <meta name="theme-color" content="#efeee6">
-  <meta name="color-scheme" content="light dark">
-  <link rel="canonical" href="https://www.prabhanshtiwari.com/projects/job-portal.html">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <script src="/assets/js/theme-init.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/styles.css">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Prabhansh Tiwari">
-  <meta property="og:title" content="Job Portal Case Study — Prabhansh Tiwari">
-  <meta property="og:description" content="A MERN job portal with JWT authentication, role-based student and recruiter experiences, job management and application tracking.">
-  <meta property="og:url" content="https://www.prabhanshtiwari.com/projects/job-portal.html">
-  <meta property="og:image" content="https://www.prabhanshtiwari.com/assets/images/social-preview.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Job Portal Case Study — Prabhansh Tiwari">
-  <meta name="twitter:description" content="A MERN job portal with JWT authentication, role-based student and recruiter experiences, job management and application tracking.">
-  <meta name="twitter:image" content="https://www.prabhanshtiwari.com/assets/images/social-preview.png">
-  <script defer src="/assets/js/site-config.js"></script>
-  <script defer src="/assets/js/main.js"></script><script defer src="/assets/js/project-media-config.js"></script><script defer src="/assets/js/interactions.js"></script>
-  <title>Job Portal Case Study — Prabhansh Tiwari</title>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Job Portal",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Web",
-    "description": "A full-stack MERN job portal with JWT authentication and role-based workflows for students and recruiters.",
-    "url": "https://jobportal-1-qxyu.onrender.com",
-    "author": {
-      "@type": "Person",
-      "name": "Prabhansh Tiwari",
-      "url": "https://www.prabhanshtiwari.com"
-    },
-    "codeRepository": "https://github.com/prabhanshtiwari/jobPortal",
-    "programmingLanguage": ["JavaScript"],
-    "softwareRequirements": ["React", "Node.js", "Express.js", "MongoDB", "Mongoose"]
-  }
-  </script>
-</head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="brand" href="/" aria-label="Prabhansh Tiwari home"> <span class="brand-mark" aria-hidden="true">pt</span> <span class="brand-name">Prabhansh Tiwari<span class="brand-dot">.</span></span> </a>
-      <nav class="desktop-nav" aria-label="Main navigation">
-        <a href="/#work">Work</a><a href="/#skills">Skills</a><a href="/#github">GitHub</a><a href="/#journey">Journey</a><a href="/#learning">Learning</a><a href="/#writing">Writing</a><a href="/certificates.html">Certificates</a><a href="/#about">About</a>
-      </nav>
-      <div class="nav-actions">
-        <a class="button button-small button-quiet nav-contact" href="/#contact">Let’s talk</a>
-        <a class="button button-small button-resume nav-resume" data-resume href="https://drive.google.com/file/d/1YiypIOMaTtsvxl19_Qf2tjC72fTW1FOO/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Open Prabhansh Tiwari’s résumé in a new tab"><span class="resume-label">Résumé</span></a><button class="icon-button" id="theme-toggle" type="button" aria-label="Switch theme" title="Switch theme"><span data-theme-icon aria-hidden="true">◐</span></button>
-        <button class="icon-button menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav"><span data-menu-icon aria-hidden="true">☰</span></button>
-      </div>
-    </div>
-    <nav class="mobile-nav container" id="mobile-nav" aria-label="Mobile navigation" hidden>
-      <a href="/#work">Work</a><a href="/#skills">Skills</a><a href="/#github">GitHub</a><a href="/#journey">Journey</a><a href="/#learning">Learning</a><a href="/#writing">Writing</a><a href="/certificates.html">Certificates</a><a href="/#about">About</a><a href="/#contact">Contact</a>
-    </nav>
-  </header>
-
-  <main id="main" class="case-page">
-    <div class="container">
-      <div class="case-back-row">
-        <a class="back-link" href="/projects.html"> All projects</a>
-        <span class="case-index">CASE STUDY / 05</span>
-      </div>
-
-      <header class="case-hero">
-        <p class="section-kicker">Full-stack web app · Recruitment workflow</p>
-        <h1>Job Portal<span class="heading-period">.</span></h1>
-        <p class="case-summary">A MERN-based job platform where students discover opportunities and recruiters publish jobs and manage applications.</p>
-        <div class="case-actions">
-          <a class="button button-primary" href="https://jobportal-1-qxyu.onrender.com" target="_blank" rel="noopener noreferrer">Open demo</a>
-          <a class="button button-secondary" href="https://github.com/prabhanshtiwari/jobPortal" target="_blank" rel="noopener noreferrer">View source code</a>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Explore Prabhansh Tiwari’s MERN Job Portal case study, with student and recruiter workflows, JWT authentication, job listings and application tracking."
+    />
+    <meta name="theme-color" content="#efeee6" />
+    <meta name="color-scheme" content="light dark" />
+    <link
+      rel="canonical"
+      href="https://www.prabhanshtiwari.com/projects/job-portal.html"
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="/assets/js/theme-init.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Prabhansh Tiwari" />
+    <meta
+      property="og:title"
+      content="Job Portal Case Study | Prabhansh Tiwari"
+    />
+    <meta
+      property="og:description"
+      content="Explore Prabhansh Tiwari’s MERN Job Portal case study, with student and recruiter workflows, JWT authentication, job listings and application tracking."
+    />
+    <meta
+      property="og:url"
+      content="https://www.prabhanshtiwari.com/projects/job-portal.html"
+    />
+    <meta
+      property="og:image"
+      content="https://www.prabhanshtiwari.com/assets/images/social-preview.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Job Portal Case Study | Prabhansh Tiwari"
+    />
+    <meta
+      name="twitter:description"
+      content="Explore Prabhansh Tiwari’s MERN Job Portal case study, with student and recruiter workflows, JWT authentication, job listings and application tracking."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.prabhanshtiwari.com/assets/images/social-preview.png"
+    />
+    <script defer src="/assets/js/site-config.js"></script>
+    <script defer src="/assets/js/main.js"></script>
+    <script defer src="/assets/js/project-media-config.js"></script>
+    <script defer src="/assets/js/interactions.js"></script>
+    <title>Job Portal Case Study | Prabhansh Tiwari</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Job Portal",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "A full-stack MERN job portal with JWT authentication and role-based workflows for students and recruiters.",
+        "url": "https://jobportal-1-qxyu.onrender.com",
+        "author": {
+          "@type": "Person",
+          "name": "Prabhansh Tiwari",
+          "url": "https://www.prabhanshtiwari.com"
+        },
+        "sameAs": "https://github.com/prabhanshtiwari/jobPortal",
+        "programmingLanguage": ["JavaScript"],
+        "softwareRequirements": [
+          "React",
+          "Node.js",
+          "Express.js",
+          "MongoDB",
+          "Mongoose"
+        ]
+      }
+    </script>
+    <meta name="author" content="Prabhansh Tiwari" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta property="og:locale" content="en_IN" />
+    <meta
+      property="og:image:alt"
+      content="Prabhansh Tiwari — web developer portfolio preview"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Prabhansh Tiwari — web developer portfolio preview"
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="/" aria-label="Prabhansh Tiwari home">
+          <span class="brand-mark" aria-hidden="true">pt</span>
+          <span class="brand-name"
+            >Prabhansh Tiwari<span class="brand-dot">.</span></span
+          >
+        </a>
+        <nav class="desktop-nav" aria-label="Main navigation">
+          <a href="/#work">Work</a><a href="/#skills">Skills</a
+          ><a href="/#github">GitHub</a><a href="/#journey">Journey</a
+          ><a href="/#learning">Learning</a><a href="/#writing">Writing</a
+          ><a href="/certificates.html">Certificates</a
+          ><a href="/#about">About</a>
+        </nav>
+        <div class="nav-actions">
+          <a
+            class="button button-small button-quiet nav-contact"
+            href="/#contact"
+            >Let’s talk</a
+          >
+          <a
+            class="button button-small button-resume nav-resume"
+            data-resume
+            href="https://drive.google.com/file/d/1YiypIOMaTtsvxl19_Qf2tjC72fTW1FOO/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Prabhansh Tiwari’s résumé in a new tab"
+            ><span class="resume-label">Résumé</span></a
+          ><button
+            class="icon-button"
+            id="theme-toggle"
+            type="button"
+            aria-label="Switch theme"
+            title="Switch theme"
+          >
+            <span data-theme-icon aria-hidden="true">◐</span>
+          </button>
+          <button
+            class="icon-button menu-toggle"
+            id="menu-toggle"
+            type="button"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            aria-controls="mobile-nav"
+          >
+            <span data-menu-icon aria-hidden="true">☰</span>
+          </button>
         </div>
-      </header>
-
-      <div class="case-hero-visual project-showcase" data-project-showcase data-project-slug="job-portal">
-  <div class="showcase-stage">
-    <img src="/assets/images/projects/job-portal-overview.webp" alt="Preview of the Job Portal landing page with sample listing content; sample details are not verified vacancies." width="1200" height="750" fetchpriority="high" data-showcase-image>
-    <div class="showcase-player" data-showcase-player hidden></div>
-    <button class="showcase-play" type="button" data-video-play hidden aria-label="Play project walkthrough"><span class="showcase-play-icon" aria-hidden="true">▶</span><span>Watch walkthrough</span></button>
-    <button class="showcase-stop" type="button" data-video-stop hidden>Back to project images</button>
-  </div>
-  <span class="media-label">Project preview · sample listing content</span>
-</div>
-
-      <div class="case-meta-grid">
-        <div><span>MY ROLE</span><strong>Full-stack development</strong></div>
-        <div><span>STATUS</span><strong>Demo URL documented</strong></div>
-        <div><span>USER ROLES</span><strong>Students + recruiters</strong></div>
-        <div><span>DELIVERABLE</span><strong>MERN job portal</strong></div>
       </div>
+      <nav
+        class="mobile-nav container"
+        id="mobile-nav"
+        aria-label="Mobile navigation"
+        hidden
+      >
+        <a href="/#work">Work</a><a href="/#skills">Skills</a
+        ><a href="/#github">GitHub</a><a href="/#journey">Journey</a
+        ><a href="/#learning">Learning</a><a href="/#writing">Writing</a
+        ><a href="/certificates.html">Certificates</a><a href="/#about">About</a
+        ><a href="/#contact">Contact</a>
+      </nav>
+    </header>
 
-      <div class="case-layout">
-        <article class="case-content">
-          <section class="case-section">
-            <p class="section-kicker">01 / THE BRIEF</p>
-            <h2>One platform, two user journeys.</h2>
-            <p>Job seekers need a clear way to find openings, apply and follow application progress. Recruiters need a separate workspace to publish roles and review applicants. The project brings both workflows into one application with role-based access.</p>
-          </section>
+    <main id="main" class="case-page">
+      <div class="container">
+        <div class="case-back-row">
+          <a class="back-link" href="/projects.html"> All projects</a>
+          <span class="case-index">CASE STUDY / 05</span>
+        </div>
 
-          <section class="case-section">
-            <p class="section-kicker">02 / THE APPROACH</p>
-            <h2>Separate experiences, shared platform.</h2>
-            <p>The application is organised into a React client and a Node.js/Express server. Students and recruiters use role-specific functionality, while JWT-based authentication and authorization protect access to the relevant parts of the application.</p>
-            <div class="job-role-grid">
-              <article class="job-role-card">
-                <span class="job-role-number">01 / STUDENT</span>
-                <h3>Find and follow opportunities</h3>
-                <ul class="case-list">
-                  <li>Browse and search available jobs.</li>
-                  <li>Apply to a job through the application workflow.</li>
-                  <li>Track application status from the student dashboard.</li>
-                </ul>
-              </article>
-              <article class="job-role-card">
-                <span class="job-role-number">02 / RECRUITER</span>
-                <h3>Publish and manage openings</h3>
-                <ul class="case-list">
-                  <li>Create and manage job postings.</li>
-                  <li>View applicants for posted jobs.</li>
-                  <li>Update or remove listings from the recruiter dashboard.</li>
-                </ul>
-              </article>
-            </div>
-          </section>
-
-          <section class="case-section">
-            <p class="section-kicker">03 / IMPLEMENTATION</p>
-            <h2>What I built</h2>
-            <ul class="case-list">
-              <li>Implemented registration and login using email/password authentication with JWT-based authentication and authorization.</li>
-              <li>Separated student and recruiter capabilities through role-based access.</li>
-              <li>Added job browsing and search, job applications, and application-status tracking for students.</li>
-              <li>Added job creation, listing management and applicant review workflows for recruiters.</li>
-              <li>Built the client with React, React Router, Axios, Tailwind CSS and shadcn/ui components.</li>
-              <li>Built the server with Node.js, Express.js, MongoDB and Mongoose.</li>
-            </ul>
-          </section>
-
-          <section class="case-section">
-            <p class="section-kicker">04 / APPLICATION ARCHITECTURE</p>
-            <h2>How the parts connect</h2>
-            <p class="case-muted">The following is a high-level view based on the repository’s documented client/server structure and technology stack.</p>
-            <div class="job-architecture" role="img" aria-label="Architecture: React client sends requests through Axios to a Node.js and Express server; the server uses JWT for authentication and role-based authorization and stores application data in MongoDB through Mongoose.">
-              <div class="job-architecture-node">
-                <span>01 / CLIENT</span>
-                <strong>React application</strong>
-                <small>React Router · Tailwind CSS · shadcn/ui · Axios</small>
-              </div>
-              <div class="job-architecture-connector" aria-hidden="true">↓ HTTPS / API requests</div>
-              <div class="job-architecture-node job-architecture-node-accent">
-                <span>02 / SERVER</span>
-                <strong>Node.js + Express.js</strong>
-                <small>Application logic · JWT authentication · Role-based authorization</small>
-              </div>
-              <div class="job-architecture-connector" aria-hidden="true">↓ Data access</div>
-              <div class="job-architecture-node">
-                <span>03 / DATABASE</span>
-                <strong>MongoDB + Mongoose</strong>
-                <small>Persistent application data</small>
-              </div>
-            </div>
-            <div class="decision-list job-decision-list">
-              <article class="decision-row"><h3>Client and server separation</h3><p>The repository keeps the frontend and backend in separate <code>Client</code> and <code>Server</code> directories.</p></article>
-              <article class="decision-row"><h3>Role-aware access</h3><p>Student and recruiter actions are separated so each role is presented with the workflows relevant to it.</p></article>
-              <article class="decision-row"><h3>Reusable UI system</h3><p>Tailwind CSS and shadcn/ui provide the interface foundation, while Framer Motion is used for interface animation.</p></article>
-            </div>
-          </section>
-
-          <section class="case-section case-gallery-section">
-            <p class="section-kicker">05 / MEDIA</p>
-            <h2>Project gallery</h2>
-            <p class="case-muted">The public job-search preview contains sample listing copy and does not verify current vacancies. The student and recruiter dashboard visuals are illustrative workflow concepts, not captured product screenshots. Select any preview to bring it into the large viewing frame.</p>
-            <div class="case-media-grid">
-              <figure class="case-media-card is-selected" data-reveal>
-                <div class="case-image"><button class="gallery-select" type="button" data-gallery-select data-image-src="/assets/images/projects/job-portal-overview.webp" data-image-alt="Job Portal public job-search preview with sample listing copy; vacancies are not verified." aria-pressed="true" aria-label="Show public job search preview"><img src="/assets/images/projects/job-portal-overview.webp" alt="Illustrative job search preview" width="1200" height="750" loading="lazy"><span class="gallery-select-overlay">View image</span></button></div>
-                <figcaption><span>01 / PUBLIC VIEW</span><span>Job discovery and search preview</span></figcaption>
-              </figure>
-              <figure class="case-media-card" data-reveal>
-                <div class="case-image"><button class="gallery-select" type="button" data-gallery-select data-image-src="/assets/images/projects/job-portal-student-dashboard.svg" data-image-alt="Illustrative student dashboard showing application tracking concepts; not a captured product screenshot." aria-pressed="false" aria-label="Show student dashboard concept"><img src="/assets/images/projects/job-portal-student-dashboard.svg" alt="Illustrative student dashboard concept" width="1200" height="750" loading="lazy"><span class="gallery-select-overlay">View image</span></button></div>
-                <figcaption><span>02 / STUDENT VIEW</span><span>Application tracking concept</span></figcaption>
-              </figure>
-              <figure class="case-media-card" data-reveal>
-                <div class="case-image"><button class="gallery-select" type="button" data-gallery-select data-image-src="/assets/images/projects/job-portal-recruiter-dashboard.svg" data-image-alt="Illustrative recruiter dashboard showing job management concepts; not a captured product screenshot." aria-pressed="false" aria-label="Show recruiter dashboard concept"><img src="/assets/images/projects/job-portal-recruiter-dashboard.svg" alt="Illustrative recruiter dashboard concept" width="1200" height="750" loading="lazy"><span class="gallery-select-overlay">View image</span></button></div>
-                <figcaption><span>03 / RECRUITER VIEW</span><span>Job and applicant management concept</span></figcaption>
-              </figure>
-            </div>
-          </section>
-
-          <section class="case-section">
-            <p class="section-kicker">06 / OUTCOME</p>
-            <h2>A role-based job portal built with the MERN stack.</h2>
-            <p>The repository documents a frontend demo URL and a separate backend API URL. The project is also published under the MIT License. Deployment reachability should be checked before presenting either URL as currently available. No user, hiring, conversion or performance figures are claimed because verified analytics were not provided in the repository documentation.</p>
-          </section>
-
-          <section class="case-section">
-            <p class="section-kicker">07 / FURTHER IMPROVEMENTS</p>
-            <h2>What I would validate next</h2>
-            <ul class="case-list">
-              <li>Add or document automated tests for authentication, role permissions, job posting and application workflows.</li>
-              <li>Document the API contracts and expected request/response shapes for the client-server boundary.</li>
-              <li>Review loading, empty and error states across student and recruiter journeys.</li>
-              <li>Run keyboard, screen-reader and responsive checks against the deployed application.</li>
-            </ul>
-          </section>
-        </article>
-
-        <aside class="case-sidebar" aria-label="Project details">
-          <div class="case-side-card">
-            <span class="side-label">TECH STACK</span>
-            <div class="stack-list">
-              <span class="stack-chip">React</span><span class="stack-chip">Tailwind CSS</span><span class="stack-chip">shadcn/ui</span><span class="stack-chip">Framer Motion</span><span class="stack-chip">React Router</span><span class="stack-chip">Axios</span><span class="stack-chip">Node.js</span><span class="stack-chip">Express.js</span><span class="stack-chip">MongoDB</span><span class="stack-chip">Mongoose</span><span class="stack-chip">JWT</span>
-            </div>
-            <div class="side-divider"></div>
-            <span class="side-label">PROJECT LINKS</span>
-            <a href="https://jobportal-1-qxyu.onrender.com" target="_blank" rel="noopener noreferrer">Frontend demo URL</a>
-            <a href="https://github.com/prabhanshtiwari/jobPortal" target="_blank" rel="noopener noreferrer">GitHub repository</a>
-            <a href="https://jobportal-bu10.onrender.com" target="_blank" rel="noopener noreferrer">Backend API URL</a>
-            <div class="side-divider"></div>
-            <span class="side-label">REPOSITORY</span>
-            <p class="case-side-note">Public repository · MIT License</p>
-            <div class="side-divider"></div>
-            <span class="side-label">HAVE A QUESTION?</span>
-            <a href="mailto:prabhansh.dev@gmail.com">Email me</a>
+        <header class="case-hero">
+          <p class="section-kicker">
+            Full-stack web app · Recruitment workflow
+          </p>
+          <h1>Job Portal<span class="heading-period">.</span></h1>
+          <p class="case-summary">
+            A MERN-based job platform where students discover opportunities and
+            recruiters publish jobs and manage applications.
+          </p>
+          <div class="case-actions">
+            <a
+              class="button button-primary"
+              href="https://jobportal-1-qxyu.onrender.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Open demo</a
+            >
+            <a
+              class="button button-secondary"
+              href="https://github.com/prabhanshtiwari/jobPortal"
+              target="_blank"
+              rel="noopener noreferrer"
+              >View source code</a
+            >
           </div>
-        </aside>
-      </div>
+        </header>
 
-      <div class="case-next">
-        <div><p class="section-kicker">KEEP EXPLORING</p><h2>More work, more learning.</h2></div>
-        <a class="button button-secondary" href="/projects.html">Browse all projects</a>
-      </div>
-    </div>
-  </main>
+        <div
+          class="case-hero-visual project-showcase"
+          data-project-showcase
+          data-project-slug="job-portal"
+        >
+          <div class="showcase-stage">
+            <img
+              src="/assets/images/projects/job-portal-overview.webp"
+              alt="Preview of the Job Portal landing page with sample listing content; sample details are not verified vacancies."
+              width="1200"
+              height="750"
+              fetchpriority="high"
+              data-showcase-image
+            />
+            <div class="showcase-player" data-showcase-player hidden></div>
+            <button
+              class="showcase-play"
+              type="button"
+              data-video-play
+              hidden
+              aria-label="Play project walkthrough"
+            >
+              <span class="showcase-play-icon" aria-hidden="true">▶</span
+              ><span>Watch walkthrough</span>
+            </button>
+            <button class="showcase-stop" type="button" data-video-stop hidden>
+              Back to project images
+            </button>
+          </div>
+          <span class="media-label"
+            >Project preview · sample listing content</span
+          >
+        </div>
 
-  <footer class="site-footer">
-    <div class="container footer-layout">
-      <div class="footer-intro">
-        <a class="brand" href="/" aria-label="Prabhansh Tiwari home"><span class="brand-mark" aria-hidden="true">pt</span><span class="brand-name">Prabhansh Tiwari<span class="brand-dot">.</span></span></a>
-        <p>Developer, lifelong learner, and someone who enjoys making technical ideas easier to understand.</p>
-        <span class="footer-manifesto">Build with purpose. Share what you learn.</span>
+        <div class="case-meta-grid">
+          <div><span>MY ROLE</span><strong>Full-stack development</strong></div>
+          <div><span>STATUS</span><strong>Demo URL documented</strong></div>
+          <div>
+            <span>USER ROLES</span><strong>Students + recruiters</strong>
+          </div>
+          <div><span>DELIVERABLE</span><strong>MERN job portal</strong></div>
+        </div>
+
+        <div class="case-layout">
+          <article class="case-content">
+            <section class="case-section">
+              <p class="section-kicker">01 / THE BRIEF</p>
+              <h2>One platform, two user journeys.</h2>
+              <p>
+                Job seekers need a clear way to find openings, apply and follow
+                application progress. Recruiters need a separate workspace to
+                publish roles and review applicants. The project brings both
+                workflows into one application with role-based access.
+              </p>
+            </section>
+
+            <section class="case-section">
+              <p class="section-kicker">02 / THE APPROACH</p>
+              <h2>Separate experiences, shared platform.</h2>
+              <p>
+                The application is organised into a React client and a
+                Node.js/Express server. Students and recruiters use
+                role-specific functionality, while JWT-based authentication and
+                authorization protect access to the relevant parts of the
+                application.
+              </p>
+              <div class="job-role-grid">
+                <article class="job-role-card">
+                  <span class="job-role-number">01 / STUDENT</span>
+                  <h3>Find and follow opportunities</h3>
+                  <ul class="case-list">
+                    <li>Browse and search available jobs.</li>
+                    <li>Apply to a job through the application workflow.</li>
+                    <li>
+                      Track application status from the student dashboard.
+                    </li>
+                  </ul>
+                </article>
+                <article class="job-role-card">
+                  <span class="job-role-number">02 / RECRUITER</span>
+                  <h3>Publish and manage openings</h3>
+                  <ul class="case-list">
+                    <li>Create and manage job postings.</li>
+                    <li>View applicants for posted jobs.</li>
+                    <li>
+                      Update or remove listings from the recruiter dashboard.
+                    </li>
+                  </ul>
+                </article>
+              </div>
+            </section>
+
+            <section class="case-section">
+              <p class="section-kicker">03 / IMPLEMENTATION</p>
+              <h2>What I built</h2>
+              <ul class="case-list">
+                <li>
+                  Implemented registration and login using email/password
+                  authentication with JWT-based authentication and
+                  authorization.
+                </li>
+                <li>
+                  Separated student and recruiter capabilities through
+                  role-based access.
+                </li>
+                <li>
+                  Added job browsing and search, job applications, and
+                  application-status tracking for students.
+                </li>
+                <li>
+                  Added job creation, listing management and applicant review
+                  workflows for recruiters.
+                </li>
+                <li>
+                  Built the client with React, React Router, Axios, Tailwind CSS
+                  and shadcn/ui components.
+                </li>
+                <li>
+                  Built the server with Node.js, Express.js, MongoDB and
+                  Mongoose.
+                </li>
+              </ul>
+            </section>
+
+            <section class="case-section">
+              <p class="section-kicker">04 / APPLICATION ARCHITECTURE</p>
+              <h2>How the parts connect</h2>
+              <p class="case-muted">
+                The following is a high-level view based on the repository’s
+                documented client/server structure and technology stack.
+              </p>
+              <div
+                class="job-architecture"
+                role="img"
+                aria-label="Architecture: React client sends requests through Axios to a Node.js and Express server; the server uses JWT for authentication and role-based authorization and stores application data in MongoDB through Mongoose."
+              >
+                <div class="job-architecture-node">
+                  <span>01 / CLIENT</span>
+                  <strong>React application</strong>
+                  <small>React Router · Tailwind CSS · shadcn/ui · Axios</small>
+                </div>
+                <div class="job-architecture-connector" aria-hidden="true">
+                  ↓ HTTPS / API requests
+                </div>
+                <div class="job-architecture-node job-architecture-node-accent">
+                  <span>02 / SERVER</span>
+                  <strong>Node.js + Express.js</strong>
+                  <small
+                    >Application logic · JWT authentication · Role-based
+                    authorization</small
+                  >
+                </div>
+                <div class="job-architecture-connector" aria-hidden="true">
+                  ↓ Data access
+                </div>
+                <div class="job-architecture-node">
+                  <span>03 / DATABASE</span>
+                  <strong>MongoDB + Mongoose</strong>
+                  <small>Persistent application data</small>
+                </div>
+              </div>
+              <div class="decision-list job-decision-list">
+                <article class="decision-row">
+                  <h3>Client and server separation</h3>
+                  <p>
+                    The repository keeps the frontend and backend in separate
+                    <code>Client</code> and <code>Server</code> directories.
+                  </p>
+                </article>
+                <article class="decision-row">
+                  <h3>Role-aware access</h3>
+                  <p>
+                    Student and recruiter actions are separated so each role is
+                    presented with the workflows relevant to it.
+                  </p>
+                </article>
+                <article class="decision-row">
+                  <h3>Reusable UI system</h3>
+                  <p>
+                    Tailwind CSS and shadcn/ui provide the interface foundation,
+                    while Framer Motion is used for interface animation.
+                  </p>
+                </article>
+              </div>
+            </section>
+
+            <section class="case-section case-gallery-section">
+              <p class="section-kicker">05 / MEDIA</p>
+              <h2>Project gallery</h2>
+              <p class="case-muted">
+                The public job-search preview contains sample listing copy and
+                does not verify current vacancies. The student and recruiter
+                dashboard visuals are illustrative workflow concepts, not
+                captured product screenshots. Select any preview to bring it
+                into the large viewing frame.
+              </p>
+              <div class="case-media-grid">
+                <figure class="case-media-card is-selected" data-reveal>
+                  <div class="case-image">
+                    <button
+                      class="gallery-select"
+                      type="button"
+                      data-gallery-select
+                      data-image-src="/assets/images/projects/job-portal-overview.webp"
+                      data-image-alt="Job Portal public job-search preview with sample listing copy; vacancies are not verified."
+                      aria-pressed="true"
+                      aria-label="Show public job search preview"
+                    >
+                      <img
+                        src="/assets/images/projects/job-portal-overview.webp"
+                        alt="Illustrative job search preview"
+                        width="1200"
+                        height="750"
+                        loading="lazy"
+                      /><span class="gallery-select-overlay">View image</span>
+                    </button>
+                  </div>
+                  <figcaption>
+                    <span>01 / PUBLIC VIEW</span
+                    ><span>Job discovery and search preview</span>
+                  </figcaption>
+                </figure>
+                <figure class="case-media-card" data-reveal>
+                  <div class="case-image">
+                    <button
+                      class="gallery-select"
+                      type="button"
+                      data-gallery-select
+                      data-image-src="/assets/images/projects/job-portal-student-dashboard.svg"
+                      data-image-alt="Illustrative student dashboard showing application tracking concepts; not a captured product screenshot."
+                      aria-pressed="false"
+                      aria-label="Show student dashboard concept"
+                    >
+                      <img
+                        src="/assets/images/projects/job-portal-student-dashboard.svg"
+                        alt="Illustrative student dashboard concept"
+                        width="1200"
+                        height="750"
+                        loading="lazy"
+                      /><span class="gallery-select-overlay">View image</span>
+                    </button>
+                  </div>
+                  <figcaption>
+                    <span>02 / STUDENT VIEW</span
+                    ><span>Application tracking concept</span>
+                  </figcaption>
+                </figure>
+                <figure class="case-media-card" data-reveal>
+                  <div class="case-image">
+                    <button
+                      class="gallery-select"
+                      type="button"
+                      data-gallery-select
+                      data-image-src="/assets/images/projects/job-portal-recruiter-dashboard.svg"
+                      data-image-alt="Illustrative recruiter dashboard showing job management concepts; not a captured product screenshot."
+                      aria-pressed="false"
+                      aria-label="Show recruiter dashboard concept"
+                    >
+                      <img
+                        src="/assets/images/projects/job-portal-recruiter-dashboard.svg"
+                        alt="Illustrative recruiter dashboard concept"
+                        width="1200"
+                        height="750"
+                        loading="lazy"
+                      /><span class="gallery-select-overlay">View image</span>
+                    </button>
+                  </div>
+                  <figcaption>
+                    <span>03 / RECRUITER VIEW</span
+                    ><span>Job and applicant management concept</span>
+                  </figcaption>
+                </figure>
+              </div>
+            </section>
+
+            <section class="case-section">
+              <p class="section-kicker">06 / OUTCOME</p>
+              <h2>A role-based job portal built with the MERN stack.</h2>
+              <p>
+                The repository documents a frontend demo URL and a separate
+                backend API URL. The project is also published under the MIT
+                License. Deployment reachability should be checked before
+                presenting either URL as currently available. No user, hiring,
+                conversion or performance figures are claimed because verified
+                analytics were not provided in the repository documentation.
+              </p>
+            </section>
+
+            <section class="case-section">
+              <p class="section-kicker">07 / FURTHER IMPROVEMENTS</p>
+              <h2>What I would validate next</h2>
+              <ul class="case-list">
+                <li>
+                  Add or document automated tests for authentication, role
+                  permissions, job posting and application workflows.
+                </li>
+                <li>
+                  Document the API contracts and expected request/response
+                  shapes for the client-server boundary.
+                </li>
+                <li>
+                  Review loading, empty and error states across student and
+                  recruiter journeys.
+                </li>
+                <li>
+                  Run keyboard, screen-reader and responsive checks against the
+                  deployed application.
+                </li>
+              </ul>
+            </section>
+          </article>
+
+          <aside class="case-sidebar" aria-label="Project details">
+            <div class="case-side-card">
+              <span class="side-label">TECH STACK</span>
+              <div class="stack-list">
+                <span class="stack-chip">React</span
+                ><span class="stack-chip">Tailwind CSS</span
+                ><span class="stack-chip">shadcn/ui</span
+                ><span class="stack-chip">Framer Motion</span
+                ><span class="stack-chip">React Router</span
+                ><span class="stack-chip">Axios</span
+                ><span class="stack-chip">Node.js</span
+                ><span class="stack-chip">Express.js</span
+                ><span class="stack-chip">MongoDB</span
+                ><span class="stack-chip">Mongoose</span
+                ><span class="stack-chip">JWT</span>
+              </div>
+              <div class="side-divider"></div>
+              <span class="side-label">PROJECT LINKS</span>
+              <a
+                href="https://jobportal-1-qxyu.onrender.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Frontend demo URL</a
+              >
+              <a
+                href="https://github.com/prabhanshtiwari/jobPortal"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub repository</a
+              >
+              <a
+                href="https://jobportal-bu10.onrender.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Backend API URL</a
+              >
+              <div class="side-divider"></div>
+              <span class="side-label">REPOSITORY</span>
+              <p class="case-side-note">Public repository · MIT License</p>
+              <div class="side-divider"></div>
+              <span class="side-label">HAVE A QUESTION?</span>
+              <a href="mailto:prabhansh.dev@gmail.com">Email me</a>
+            </div>
+          </aside>
+        </div>
+
+        <div class="case-next">
+          <div>
+            <p class="section-kicker">KEEP EXPLORING</p>
+            <h2>More work, more learning.</h2>
+          </div>
+          <a class="button button-secondary" href="/projects.html"
+            >Browse all projects</a
+          >
+        </div>
       </div>
-      <div class="footer-column"><h2>Explore</h2><a href="/#work">Selected work</a><a href="/projects.html">All projects</a><a href="/certificates.html">Certificates</a><a href="/#about">About me</a><a href="/#skills">Technical skills</a><a href="/#github">GitHub activity</a><a href="/#learning">Learning</a></div>
-      <div class="footer-column"><h2>Read</h2><a href="https://dev.to/prabhanshtiwari/routing-in-backend-development-the-complete-developers-guide-3mnd" target="_blank" rel="noopener noreferrer">Backend routing guide</a><a href="https://dev.to/prabhanshtiwari/advanced-path-aliases-in-vite-stop-writing-forever-2855" target="_blank" rel="noopener noreferrer">Vite path aliases</a><a href="https://dev.to/prabhanshtiwari" target="_blank" rel="noopener noreferrer">DEV Community</a></div>
-      <div class="footer-column"><h2>Connect</h2><a href="mailto:prabhansh.dev@gmail.com">Email</a><a href="https://github.com/prabhanshtiwari" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/prabhanshtiwari" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
-      <div class="footer-bottom"><small>© <span data-current-year>2026</span> Prabhansh Tiwari</small><a href="#main">Back to top</a></div>
-    </div>
-  </footer>
-</body>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-layout">
+        <div class="footer-intro">
+          <a class="brand" href="/" aria-label="Prabhansh Tiwari home"
+            ><span class="brand-mark" aria-hidden="true">pt</span
+            ><span class="brand-name"
+              >Prabhansh Tiwari<span class="brand-dot">.</span></span
+            ></a
+          >
+          <p>
+            Developer, lifelong learner, and someone who enjoys making technical
+            ideas easier to understand.
+          </p>
+          <span class="footer-manifesto"
+            >Build with purpose. Share what you learn.</span
+          >
+        </div>
+        <div class="footer-column">
+          <h2>Explore</h2>
+          <a href="/#work">Selected work</a
+          ><a href="/projects.html">All projects</a
+          ><a href="/certificates.html">Certificates</a
+          ><a href="/#about">About me</a><a href="/#skills">Technical skills</a
+          ><a href="/#github">GitHub activity</a
+          ><a href="/#learning">Learning</a>
+        </div>
+        <div class="footer-column">
+          <h2>Read</h2>
+          <a
+            href="https://dev.to/prabhanshtiwari/routing-in-backend-development-the-complete-developers-guide-3mnd"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Backend routing guide</a
+          ><a
+            href="https://dev.to/prabhanshtiwari/advanced-path-aliases-in-vite-stop-writing-forever-2855"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Vite path aliases</a
+          ><a
+            href="https://dev.to/prabhanshtiwari"
+            target="_blank"
+            rel="noopener noreferrer"
+            >DEV Community</a
+          >
+        </div>
+        <div class="footer-column">
+          <h2>Connect</h2>
+          <a href="mailto:prabhansh.dev@gmail.com">Email</a
+          ><a
+            href="https://github.com/prabhanshtiwari"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub</a
+          ><a
+            href="https://www.linkedin.com/in/prabhanshtiwari"
+            target="_blank"
+            rel="noopener noreferrer"
+            >LinkedIn</a
+          >
+        </div>
+        <div class="footer-bottom">
+          <small>© <span data-current-year>2026</span> Prabhansh Tiwari</small
+          ><a href="#main">Back to top</a>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

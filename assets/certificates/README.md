@@ -48,7 +48,6 @@ Use a unique `id` and filename. Dates can be left blank only when they are genui
 
 `edunet-foundation-internship.pdf` is the original one-page A4 portrait certificate already included in this site. Its preview is in `previews/edunet-foundation-internship.webp`.
 
-
 ## Privacy note for the currently included file
 
 The Edunet Foundation PDF contains a student identifier in its printed content. Review it before deployment. If you do not want that identifier public, create a properly redacted public certificate copy and update the catalogue to point to that copy; keep the original private.

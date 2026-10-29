@@ -1,6 +1,6 @@
 # Prabhansh Tiwari — Portfolio
 
-A responsive, multi-page portfolio built with semantic HTML, CSS and vanilla JavaScript, plus a small PHP contact endpoint for PHP-capable hosting. There is no frontend framework, package manager or build step. The ZIP is structured so that `index.html` sits at the deployment root.
+A responsive, multi-page portfolio built with semantic HTML, CSS and vanilla JavaScript, plus a native Vercel Node.js contact function and a PHP fallback for PHP-capable hosting. There is no frontend framework, package manager or frontend build step. The ZIP is structured so that `index.html` sits at the deployment root.
 
 ## Run locally
 
@@ -19,7 +19,7 @@ Open `http://localhost:5500`. Do not open the HTML files directly with `file://`
 - `certificates.html` — searchable, category-filtered certificate library with an original-size viewer for PDF and image certificates.
 - `index.html#skills` — dedicated technical skills grouped by frontend, backend, databases, tools and current learning.
 - `index.html#github` — curated repository highlights and recent public activity from the GitHub REST API.
-- `contact.php` — same-origin contact endpoint with validation, hidden honeypot, basic rate limiting and email delivery through PHP `mail()`.
+- `api/contact.mjs` — Vercel Node.js contact function (Resend API); `contact.php` remains the fallback for PHP-capable hosting.
 - `projects/*.html` — crawlable, consistent case studies for P.N. Central Academy, Bootle Village Stores, Dynamic Weather Dashboard, Quiz Game and Job Portal. Each includes the brief, approach, implementation, decisions, project gallery/video slot, outcome and demo/source links.
 - `education/*.html` — dedicated BCA (United University) and online MCA (Chandigarh University) detail pages.
 - `experience/edunet-foundation.html` — internship detail page with learning outcomes and certificate access.
@@ -103,25 +103,25 @@ Replace the current illustrative previews with actual project screenshots only w
 
 The site uses subtle entrance reveals and hover transitions. `prefers-reduced-motion: reduce` disables those effects. The reveal logic is progressive enhancement: content remains visible if JavaScript or IntersectionObserver is unavailable.
 
-
 ## Certificate library
 
 The certificate gallery is available at `/certificates.html`. Add certificate files under `assets/certificates/` and add their metadata in `assets/js/certificates-data.js`. See `assets/certificates/README.md` for the schema, thumbnail workflow, orientation handling and examples. The original certificate file is always used in the viewer; thumbnails are only for the grid.
 
+## Contact form setup (Vercel / Resend)
 
-## Contact form setup (Hostinger / PHP hosting)
+The live Vercel site submits the contact form to `/api/contact` (Node.js serverless function). It validates the fields and same-origin request, uses a hidden honeypot, applies a best-effort in-memory per-IP rate limit, and sends mail through the Resend API. No visitor messages are stored in a database.
 
-The contact form posts to `/contact.php`. The endpoint validates the fields, restricts requests to the site host, ignores submissions that fill the honeypot field, applies a basic per-IP rate limit and sends a plain-text email to `prabhansh.dev@gmail.com`. It does not store visitor messages in a database.
+To enable delivery on Vercel:
 
-For production delivery on Hostinger or another PHP host:
+1. Create a Resend account and verify a sending domain. Add the SPF/DKIM records Resend provides at your DNS host.
+2. Create a Resend API key. Never put it in HTML, JavaScript, GitHub or `site-config.js`.
+3. In Vercel → Project → Settings → Environment Variables, add `RESEND_API_KEY`, `CONTACT_FROM_EMAIL`, and (optionally) `CONTACT_TO_EMAIL`.
+4. Set `CONTACT_FROM_EMAIL` to a sender identity verified in Resend (for example, `Prabhansh Tiwari <hello@your-verified-domain>`). `CONTACT_TO_EMAIL` defaults to `prabhansh.dev@gmail.com` if omitted.
+5. Apply the variables to Production (and Preview if you want to test previews), then redeploy. Submit a real test and verify that it arrives in Inbox/Spam before treating delivery as confirmed.
 
-1. Upload `contact.php` to the same public root as `index.html`; do not rename it.
-2. Confirm the hosting plan supports PHP 8.1+ and has PHP `mail()` enabled.
-3. Configure a sender address on the domain (default: `no-reply@prabhanshtiwari.com`). If the host supports environment variables, set `PORTFOLIO_CONTACT_FROM` to the verified sender mailbox.
-4. Configure the domain's SPF and DKIM records with the email provider and send a real test from the deployed website. Check Inbox and Spam.
-5. If PHP mail is disabled, the form returns an error and the visible direct-email fallback remains available. Do not claim successful delivery until a real message arrives.
+Without these environment variables, the endpoint returns a clear `503` response and the page retains its direct-email fallback. The in-memory rate limit is best-effort across warm function instances; it is not a distributed abuse-prevention system.
 
-This endpoint is designed for PHP-capable shared hosting. Static-only hosts such as GitHub Pages, Netlify static hosting or Vercel static deployments do not execute PHP; on those hosts, connect the form to a serverless function or a form provider instead of uploading `contact.php` unchanged.
+For Apache/LiteSpeed or Hostinger PHP hosting, the original `contact.php` remains available. Change `contactEndpoint` in `assets/js/site-config.js` from `/api/contact` to `/contact.php`, keep the form action aligned, configure PHP 8.1+ and a verified `PORTFOLIO_CONTACT_FROM` sender, and test real delivery. Vercel does not execute the PHP file; it uses `api/contact.mjs`.
 
 ## Résumé visibility
 
@@ -133,4 +133,9 @@ The skills section deliberately avoids self-assessed percentage bars. Each techn
 
 ## SEO and search visibility
 
-The homepage has a brand-consistent Person, WebSite and ProfilePage JSON-LD graph; page-specific title/description/canonical/Open Graph tags remain in place on individual pages. `robots.txt` allows crawling and points to `sitemap.xml`; the not-found page is marked `noindex`. SEO implementation improves discoverability signals but cannot guarantee indexing, a #1 ranking, or any specific search position. After deployment, verify the canonical HTTPS URL, create Google Search Console and Bing Webmaster Tools properties, submit the sitemap, inspect indexed URLs, and request indexing for the homepage and important case studies. Continue publishing unique, useful project write-ups and earn genuine references/links.
+- The canonical host is `https://www.prabhanshtiwari.com`; the apex domain is configured in Vercel to redirect to `www`. Canonical tags, Open Graph URLs, Twitter image URLs and first-party JSON-LD URLs should use this same host.
+- `sitemap.xml` is UTF-8 XML with its declaration at byte zero and lists the 11 indexable content pages. The 404 page is deliberately excluded and marked `noindex, follow`.
+- Every sitemap URL uses the `www` canonical hostname and matches one of the 11 canonical HTML pages exactly. The XML declaration starts at byte zero and the file has no UTF-8 BOM.
+- `robots.txt` allows crawling and advertises the www sitemap. Do not add `Disallow: /`.
+- Indexable pages use unique titles/descriptions, canonical URLs, Open Graph/Twitter cards and JSON-LD where relevant. The shared social preview is 1200×630.
+- Search engines decide when and whether to crawl/index pages. Sitemap submission and valid metadata do not guarantee indexing, ranking or a #1 result. After deployment, use Google Search Console and Bing Webmaster Tools to inspect the www canonical URLs, review crawl/index coverage and request recrawls when necessary.

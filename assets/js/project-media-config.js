@@ -6,5 +6,5 @@ window.PORTFOLIO_MEDIA_CONFIG = {
   "bootle-village-stores": "",
   "dynamic-weather-dashboard": "",
   "quiz-game": "",
-  "job-portal": ""
+  "job-portal": "",
 };

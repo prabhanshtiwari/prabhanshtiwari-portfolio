@@ -13,10 +13,11 @@ window.PORTFOLIO_CERTIFICATES = [
     categoryLabel: "Web Development",
     date: "2025-09-30",
     dateLabel: "August–September 2025",
-    description: "Certificate of completion for a six-week Front End Web Development internship, completed from 21 August to 30 September 2025 in collaboration with the All India Council for Technical Education (AICTE).",
+    description:
+      "Certificate of completion for a six-week Front End Web Development internship, completed from 21 August to 30 September 2025 in collaboration with the All India Council for Technical Education (AICTE).",
     tags: ["Frontend", "Internship", "AICTE", "Web Development"],
     file: "/assets/certificates/edunet-foundation-internship.pdf",
     fileType: "pdf",
     preview: "/assets/certificates/previews/edunet-foundation-internship.webp",
-  }
+  },
 ];

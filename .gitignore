@@ -1,0 +1,10 @@
+# Local environment secrets
+.env
+.env.*
+!.env.example
+
+# Deployment/local tooling
+.vercel
+node_modules
+.DS_Store
+Thumbs.db

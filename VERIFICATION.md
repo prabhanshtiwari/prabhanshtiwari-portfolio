@@ -1,82 +1,66 @@
-# Portfolio v4 — implementation and verification report
+# Portfolio v5 — SEO and Vercel compatibility update
 
-**Audit date:** 29 October 2026  
-**Source:** `prabhansh-portfolio-production-v3.zip` supplied in this conversation  
-**Output:** `prabhansh-portfolio-production-v4.zip`
+**Date:** 29 October 2026  
+**Source:** User-supplied `prabhansh-portfolio-production-v4(1).zip`  
+**Output:** `prabhansh-portfolio-production-v5.zip`
 
-## Changes implemented
+## Preserved features
 
-### Site structure and navigation
-- Preserved all existing project case studies, project archive, certificate library, project galleries, video configuration, education and experience detail pages, theme switch, animations, metadata and responsive layouts.
-- Expanded the homepage structure into clear sections: hero, engineering philosophy, technical skills, selected projects, GitHub, learning, AI/engineering principles, education and experience, certificates, writing, background and contact.
-- Kept project case studies individually crawlable and consistently linked to their live/demo page and source repository.
-- Added an architecture overview to the README.
+The existing homepage, projects archive, five project case studies, project galleries and video slots, technical skills, GitHub activity, résumé controls, education pages, experience page, certificate library, light/dark themes, responsive navigation, animations and accessibility features were retained.
 
-### Technical skills and evidence
-- Added four evidence-led skill groups: frontend, backend/API, databases, and tools/collaboration, plus current cloud/infrastructure learning.
-- Avoided unsupported skill percentage ratings. Each group links to relevant project or learning evidence.
-- Confirmed each of the five case studies retains its demo and source-code links. The external repository URLs for P.N. Central Academy, Bootle Village Stores, Dynamic Weather Dashboard and Quiz Game were confirmed to exist on GitHub during this review.
-- Project images already in the package are explicitly labelled as illustrative where they are not actual product screenshots. No fake user outcomes, testimonials, usage statistics or production screenshots were added.
+## Changes in this update
 
-### GitHub activity and pinned projects
-- Added four featured repositories matching the public GitHub profile's pinned repositories on 29 October 2026: `chai-aur-react`, `chai-aur-javascript`, `Portfolio`, and `jobPortal`.
-- Added live public repository metadata, language, star count, profile public repository count, follower count and recent public events using GitHub's unauthenticated REST API.
-- Added 30-minute browser-side caching, timeout handling and graceful fallback. Static repository links remain available when GitHub is rate-limited or unavailable. No token is embedded.
+### Indexing and SEO
 
-### Résumé visibility
-- Added a persistent résumé action to the site header on all indexable pages. At mobile widths it becomes a compact `CV` button. It remains visible down to 320px in the responsive test.
-- Retained the supplied Google Drive résumé URL; replace it with a website-hosted PDF URL when available.
+- Standardised canonical URLs, Open Graph URLs, Twitter image URLs and first-party JSON-LD URLs on `https://www.prabhanshtiwari.com`.
+- Rebuilt the sitemap with the XML declaration as the first bytes (UTF-8, no BOM), and retained all 11 indexable pages. The sitemap contains no 404 or API route.
+- Kept `robots.txt` permissive and aligned its sitemap directive with the www host.
+- Fixed the malformed Quiz Game `og:image` URL.
+- Added complete Twitter/X card metadata to the BCA, MCA and Edunet experience pages; standardised social preview metadata on all 11 indexable pages, including image dimensions and alt text.
+- Added author metadata and `max-image-preview:large` to indexable pages. Kept the 404 page `noindex, follow` and did not give it a canonical URL.
+- Tightened unique page titles and descriptions while preserving their actual subject matter.
+- Corrected the optional Apache/LiteSpeed `.htaccess` rule so it redirects non-www/HTTP requests to HTTPS www without redirecting an already-canonical www request to itself. Vercel ignores `.htaccess`.
+- Corrected the Job Portal `SoftwareApplication` JSON-LD to use `sameAs` for its GitHub repository rather than the unrelated `codeRepository` property.
 
-### Contact system
-- Added an accessible contact form with name, email, enquiry topic and message fields, plus a hidden honeypot.
-- Implemented `contact.php` for PHP 8.1+ hosting: POST-only, strict field validation, allowed-host/origin checks, content-length limit, basic per-IP rate limiting and plain-text email delivery using PHP `mail()`.
-- Added client-side asynchronous submission, success/error messaging and a direct email fallback.
-- No visitor messages are stored in a database. No third-party service or API key is required.
+### Contact form compatibility for Vercel
 
-### SEO and crawlability
-- Standardised page titles, descriptions, canonical URLs, Open Graph/Twitter metadata and JSON-LD where appropriate.
-- Kept one canonical host (`https://www.prabhanshtiwari.com/`) in canonical tags and sitemap; provided HTTPS and `www` to apex redirects in the Apache/LiteSpeed `.htaccess`.
-- Confirmed `robots.txt` references the sitemap, the sitemap lists all indexable content pages and the 404 page is `noindex`.
-- SEO implementation improves technical eligibility and brand clarity but cannot guarantee indexing or first place for a query. Search Console/Bing Webmaster Tools, external references, relevant content and time after deployment remain necessary.
+- Added `api/contact.mjs`, a native Vercel Node.js function that validates same-origin POST requests, input lengths/topics/email, content size and a hidden honeypot. It sends messages via the Resend API when Vercel environment variables are configured.
+- Changed the browser form submission to URL-encoded data, which is parsed by Vercel's function and also remains compatible with PHP `$_POST`.
+- Kept `contact.php` as a fallback for PHP-capable hosting.
+- Added `.gitignore` rules for secrets and local tooling.
+- Documented the required Vercel variables: `RESEND_API_KEY`, `CONTACT_FROM_EMAIL`, and optional `CONTACT_TO_EMAIL`. Actual delivery is not active until the user configures a Resend account, verifies a sender domain, adds the variables in Vercel and tests a real inbox delivery.
 
-## Verification results
+## Validation results
 
-| Check | Result |
-|---|---|
-| HTML pages parsed | 12 passed |
-| Unique canonical URLs | 11 / 11 |
-| JavaScript syntax | 9 files passed |
-| CSS parsing | 0 parser errors |
-| JSON-LD, sitemap and manifests | Passed |
-| Local references and fragments | Passed |
-| Same-origin HTTP paths | 42 / 42 successful (contact GET intentionally returns 405) |
-| Résumé visibility | Visible at 1440, 1024, 768, 390, 360 and 320px |
-| Horizontal overflow | None at tested widths |
-| Browser console/page errors | 0 |
-| Skills / GitHub cards | 4 / 4, all reveal correctly |
-| Browser contact form success flow | Passed with mocked mail response |
-| GitHub UI integration | Passed with mocked API responses |
-| PHP syntax | Passed |
-| ZIP integrity | Passed |
+| Check                                |                                                                              Result |
+| ------------------------------------ | ----------------------------------------------------------------------------------: |
+| HTML documents                       |                                                                           12 parsed |
+| Unique canonical pages               |                                                                             11 / 11 |
+| Titles and descriptions              |                                        Present and unique on all 11 indexable pages |
+| Canonical/Open Graph URL agreement   |                                                                             11 / 11 |
+| Twitter card/image metadata          |                                                                             11 / 11 |
+| JSON-LD syntax                       | All blocks parse as JSON; project and education entities use appropriate properties |
+| Sitemap XML                          |                                    Valid; 11 www URLs; XML declaration at byte zero |
+| Sitemap URLs vs canonical pages      |                                                                         Exact match |
+| Robots policy                        |                                                 Allows crawl; points to www sitemap |
+| 404 handling                         |                                            `noindex, follow`; excluded from sitemap |
+| Local asset/link paths and fragments |                                           470 checked; 0 missing files or fragments |
+| JavaScript syntax                    |                            All site scripts and Vercel function pass `node --check` |
+| Vercel contact endpoint              |    Method, origin, validation, honeypot, unconfigured and mocked-success tests pass |
+| ZIP integrity                        |                                                                              Passed |
 
-### Contact endpoint test detail
-- `GET /contact.php` → `405 Method Not Allowed` (expected).
-- Invalid email → `422 Unprocessable Content` (expected).
-- Foreign Origin → `403 Forbidden` (expected).
-- Honeypot filled → `200` generic acknowledgement without mail delivery (expected spam suppression).
-- Valid submission → `503` in this environment because PHP `mail()` cannot hand off to a configured mail transport. The website's frontend success state was verified with a mocked success response. **Actual email delivery is not yet certified.**
+### Contact delivery limitation
 
-### Browser validation limitation
-Chromium loaded the homepage and assets in an in-memory test page. The full-page desktop and mobile layouts were inspected; browser tests covered the sticky résumé CTA, mobile menu, section reveals, GitHub cards/data rendering, no-overflow widths, and contact submission UI. The local HTTP server was tested separately because browser navigation to its loopback address is blocked by the environment. This does not certify every browser, the deployed host, or external API availability.
+The Vercel contact endpoint is implemented but cannot send email until the owner supplies valid Resend environment variables. A mocked Resend success was used for code-path testing; no real email was sent and no inbox delivery is claimed. The best-effort in-memory rate limit may reset across serverless instances; use a shared rate-limit store for stronger production abuse protection.
 
-## Required deployment actions
+### Indexing limitation
 
-1. Deploy on PHP 8.1+ hosting if you want to use `contact.php` as included. Static-only Vercel/Netlify/GitHub Pages hosting will not execute PHP; use a serverless function or form provider there.
-2. On the PHP host, configure `mail()` or the host's recommended SMTP transport. Set a verified domain sender (`PORTFOLIO_CONTACT_FROM` if environment variables are supported), configure SPF/DKIM, then submit a real form and verify Inbox/Spam.
-3. Replace the Google Drive résumé URL with a public, current PDF on your domain if desired.
-4. Replace illustrative project preview assets with actual screenshots or screen recordings you are authorised to publish. No new real screenshots, verified metrics or testimonials were fabricated.
-5. Check the included Edunet certificate for personal identifiers before publishing.
-6. Open all external project demos and test real application workflows/APIs on the deployed endpoints. The portfolio's local checks do not verify those services.
-7. After DNS/hosting is stable, create/verify the domain in Google Search Console and Bing Webmaster Tools, submit `/sitemap.xml`, inspect canonical/index coverage and review Lighthouse/Core Web Vitals.
+This package corrects technical signals under the site's control. It cannot force Google to crawl or index a URL, clear Google's cached robots response immediately, or guarantee any search ranking. After deployment, inspect the canonical `www` URLs in Google Search Console and check the live robots fetch and Pages report.
 
-**Result:** Static validation, local HTTP checks, Chromium UI tests and packaging checks passed. Contact email delivery and production deployment checks remain pending host configuration. No #1 search ranking guarantee is possible.
+## Deployment steps
+
+1. Upload/commit the contents of this ZIP to the GitHub repository's `main` branch (do not upload the ZIP itself as a nested file).
+2. Confirm Vercel builds the latest production commit successfully. No build command or install command is required for this static site; Vercel detects `api/contact.mjs` as a Node.js Function.
+3. Configure `RESEND_API_KEY` and `CONTACT_FROM_EMAIL` in Vercel, optionally `CONTACT_TO_EMAIL`, and redeploy to enable email delivery.
+4. Verify `https://www.prabhanshtiwari.com/robots.txt`, `/sitemap.xml`, the homepage and each canonical page.
+5. In Search Console, retain the successful www sitemap submission, then inspect the www homepage and the other canonical URLs. Request indexing only after live tests show that Google can crawl them.
