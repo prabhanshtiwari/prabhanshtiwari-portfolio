@@ -1,0 +1,68 @@
+[
+  {
+    "slug": "pn-central-academy",
+    "title": "P.N. Central Academy",
+    "page": "/projects/pn-central-academy.html",
+    "category": "websites",
+    "status": "Website URL",
+    "live": "https://pn-central-academy.vercel.app/",
+    "repo": "https://github.com/prabhanshtiwari/pn-central-academy",
+    "media": [
+      "/assets/images/projects/pn-central-academy-overview.webp",
+      "/assets/images/projects/pn-central-academy-admin.svg"
+    ]
+  },
+  {
+    "slug": "bootle-village-stores",
+    "title": "Bootle Village Stores & Post Office",
+    "page": "/projects/bootle-village-stores.html",
+    "category": "websites",
+    "status": "Website URL",
+    "live": "https://bootlestores.netlify.app/",
+    "repo": "https://github.com/prabhanshtiwari/bootle-village-stores",
+    "media": [
+      "/assets/images/projects/bootle-village-stores-overview.webp",
+      "/assets/images/projects/bootle-village-stores-details.svg"
+    ]
+  },
+  {
+    "slug": "dynamic-weather-dashboard",
+    "title": "Dynamic Weather Dashboard",
+    "page": "/projects/dynamic-weather-dashboard.html",
+    "category": "web-apps",
+    "status": "Demo URL",
+    "live": "https://dynamic-weather-1234.netlify.app/",
+    "repo": "https://github.com/prabhanshtiwari/Dynamic-Weather-Dashboard",
+    "media": [
+      "/assets/images/projects/dynamic-weather-dashboard-overview.svg",
+      "/assets/images/projects/dynamic-weather-dashboard-forecast.svg"
+    ]
+  },
+  {
+    "slug": "quiz-game",
+    "title": "Quiz Game",
+    "page": "/projects/quiz-game.html",
+    "category": "web-apps",
+    "status": "Demo URL",
+    "live": "https://prabhanshtiwari.github.io/quiz-game/",
+    "repo": "https://github.com/prabhanshtiwari/quiz-game",
+    "media": [
+      "/assets/images/projects/quiz-game-question.svg",
+      "/assets/images/projects/quiz-game-results.svg"
+    ]
+  },
+  {
+    "slug": "job-portal",
+    "title": "Job Portal",
+    "page": "/projects/job-portal.html",
+    "category": "web-apps",
+    "status": "Demo URL",
+    "live": "https://jobportal-1-qxyu.onrender.com",
+    "repo": "https://github.com/prabhanshtiwari/jobPortal",
+    "media": [
+      "/assets/images/projects/job-portal-overview.webp",
+      "/assets/images/projects/job-portal-student-dashboard.svg",
+      "/assets/images/projects/job-portal-recruiter-dashboard.svg"
+    ]
+  }
+]

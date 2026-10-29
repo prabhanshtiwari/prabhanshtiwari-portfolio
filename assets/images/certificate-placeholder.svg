@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" role="img" aria-labelledby="title desc">
+<title id="title">Certificate preview placeholder</title><desc id="desc">A neutral document illustration used until a certificate preview is added.</desc>
+<rect width="900" height="640" rx="32" fill="#e8ece5"/>
+<rect x="280" y="72" width="340" height="496" rx="18" fill="#fbfcf8" stroke="#bac9bb" stroke-width="5"/>
+<path d="M335 170h230M335 215h190M335 260h230M335 305h175" stroke="#9aab9c" stroke-width="12" stroke-linecap="round"/>
+<circle cx="450" cy="405" r="48" fill="#dce8dc" stroke="#52785f" stroke-width="6"/>
+<path d="m426 405 16 16 34-37" fill="none" stroke="#52785f" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="450" y="510" fill="#52675a" font-family="Arial,sans-serif" font-size="22" text-anchor="middle" font-weight="700">CERTIFICATE</text>
+</svg>
