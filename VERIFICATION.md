@@ -35,7 +35,7 @@
 
 ### SEO and crawlability
 - Standardised page titles, descriptions, canonical URLs, Open Graph/Twitter metadata and JSON-LD where appropriate.
-- Kept one canonical host (`https://prabhanshtiwari.com/`) in canonical tags and sitemap; provided HTTPS and `www` to apex redirects in the Apache/LiteSpeed `.htaccess`.
+- Kept one canonical host (`https://www.prabhanshtiwari.com/`) in canonical tags and sitemap; provided HTTPS and `www` to apex redirects in the Apache/LiteSpeed `.htaccess`.
 - Confirmed `robots.txt` references the sitemap, the sitemap lists all indexable content pages and the 404 page is `noindex`.
 - SEO implementation improves technical eligibility and brand clarity but cannot guarantee indexing or first place for a query. Search Console/Bing Webmaster Tools, external references, relevant content and time after deployment remain necessary.
 

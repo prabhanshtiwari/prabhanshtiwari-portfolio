@@ -8,7 +8,7 @@ window.PORTFOLIO_CONFIG = {
   linkedin: 'https://www.linkedin.com/in/prabhanshtiwari',
   devto: 'https://dev.to/prabhanshtiwari',
   resumeUrl: 'https://drive.google.com/file/d/1YiypIOMaTtsvxl19_Qf2tjC72fTW1FOO/view?usp=sharing',
-  website: 'https://prabhanshtiwari.com',
+  website: 'https://www.prabhanshtiwari.com',
   location: 'Prayagraj, India',
   year: new Date().getFullYear()
 };
