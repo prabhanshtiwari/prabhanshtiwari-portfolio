@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.prabhanshtiwari.com/sitemap.xml
+Sitemap: https://prabhanshtiwari.com/sitemap.xml
