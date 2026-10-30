@@ -1,10 +1,33 @@
 # Prabhansh Tiwari — Portfolio
 
-A responsive, multi-page portfolio built with semantic HTML, CSS and vanilla JavaScript, plus a native Vercel Node.js contact function and a PHP fallback for PHP-capable hosting. There is no frontend framework, package manager or frontend build step. The ZIP is structured so that `index.html` sits at the deployment root.
+A responsive, multi-page portfolio built with semantic HTML, CSS and vanilla JavaScript. It deploys as a static site on Vercel and uses one Vercel Node.js Function (`/api/contact`) to deliver contact-form messages through Resend. No frontend framework or build step is required.
+
+## Homepage structure
+
+The homepage is intentionally focused on six sections:
+
+1. **Hero** — role, short introduction, portrait and social profiles.
+2. **Selected work** — three featured projects with case-study and live/source links.
+3. **Skills** — compact technology groups, without proficiency percentages.
+4. **About** — short biography and a compact education/experience timeline.
+5. **Writing & teaching** — two technical articles and a concise teaching note.
+6. **Contact** — direct email and a functional contact form.
+
+The primary navigation has four destinations: Work, About, Writing and Contact. The résumé and theme controls remain separate utilities. GitHub repository metrics, the learning log, the AI-philosophy block and the certificate spotlight were removed from the homepage to reduce repetition. Detailed pages remain available below.
+
+## Pages
+
+- `index.html` — concise portfolio homepage.
+- `projects.html` — searchable project archive.
+- `projects/*.html` — detailed project case studies.
+- `certificates.html` — searchable certificate library.
+- `education/*.html` — BCA and online MCA details.
+- `experience/edunet-foundation.html` — internship details.
+- `404.html` — custom not-found page.
 
 ## Run locally
 
-From the folder containing `index.html`, run:
+From the project root:
 
 ```bash
 python -m http.server 5500
@@ -12,130 +35,67 @@ python -m http.server 5500
 
 Open `http://localhost:5500`. Do not open the HTML files directly with `file://`; root-relative asset paths are intended for a web server and a domain-root deployment.
 
-## Pages
+Run the automated checks with Node.js 20 or later:
 
-- `index.html` — homepage with hero, engineering philosophy, technical skills, featured projects, GitHub activity, learning, education/experience highlights, certificates, writing, background and contact.
-- `projects.html` — searchable and filterable project archive, with a complete static fallback if JavaScript is disabled.
-- `certificates.html` — searchable, category-filtered certificate library with an original-size viewer for PDF and image certificates.
-- `index.html#skills` — dedicated technical skills grouped by frontend, backend, databases, tools and current learning.
-- `index.html#github` — curated repository highlights and recent public activity from the GitHub REST API.
-- `api/contact.mjs` — Vercel Node.js contact function (Resend API); `contact.php` remains the fallback for PHP-capable hosting.
-- `projects/*.html` — crawlable, consistent case studies for P.N. Central Academy, Bootle Village Stores, Dynamic Weather Dashboard, Quiz Game and Job Portal. Each includes the brief, approach, implementation, decisions, project gallery/video slot, outcome and demo/source links.
-- `education/*.html` — dedicated BCA (United University) and online MCA (Chandigarh University) detail pages.
-- `experience/edunet-foundation.html` — internship detail page with learning outcomes and certificate access.
-- `404.html` — custom not-found page. Configure the host to serve it for missing routes if that is not automatic.
-
-The information architecture separates the homepage overview from evidence pages: visitors can move from a skill to a relevant case study, from a project card to its full write-up, and from an education/experience card to its dedicated detail page. The résumé action is kept in the sticky header on desktop and as a compact `CV` control on smaller screens.
-
-## Project data and assets
-
-- `assets/js/projects.js` is the canonical project-card dataset. Keep each `slug`, case-study page and `media` filename aligned; `project-manifest.json` mirrors the dataset with explicit case-study and media paths for quick auditing.
-- `sitemap.xml` includes the homepage, project archive and case studies, education/experience details, and the certificate library.
-- Raster project previews are supplied in WebP for smaller downloads; unused high-resolution PNG duplicates were removed from this deployment package.
-- SVGs in `assets/images/projects/` are clearly described as illustrative concepts, not product screenshots. Replace them only with images you own or have permission to publish.
-- The hero portrait remains the supplied image. The layout now frames it at 4:5 using `object-fit: cover`; the file itself is not artificially retouched.
-
-## Design and accessibility
-
-- Warm neutral light theme and deep green-charcoal dark theme, with muted forest-green accents.
-- Shared early theme bootstrap prevents a light/dark flash on pages that use the saved preference or system setting. Manual choice is stored in `localStorage` when available.
-- Responsive navigation, clear focus outlines, skip link, semantic landmarks, image alternatives, reduced-motion support, and accessible project/certificate counts.
-- Certificate records are data-driven, sorted newest first, and can be filtered by category or searched by title, issuer, description, tags and record ID. Gallery previews fit portrait, landscape and square documents without cropping; the viewer opens the original PDF or image.
-- Project archive controls appear only after the archive script is ready; all project cards remain visible without JavaScript.
-- External links opened in a new tab include `noopener noreferrer`.
-
-## Public details
-
-Edit `assets/js/site-config.js` to update name, email, public profiles, résumé URL, website and location. Do not place private API keys or credentials in this file.
-
-## Before deployment
-
-1. Deploy the contents of this folder as the website root. The site uses root-relative paths such as `/assets/...`.
-2. Open every external demo, repository, social and résumé link from a real browser. The Job Portal frontend endpoint returned a `Vite + React` page response during this audit, but that does not confirm that the student/recruiter workflows or backend API are healthy. Other hosted demo destinations could not be independently loaded from the audit environment.
-3. Confirm you have permission to publish every school, business and project image, and remove any private or test data from screenshots. The Job Portal preview contains sample listing content and is labelled accordingly; it is not evidence of a current vacancy.
-4. For Hostinger/cPanel Apache or LiteSpeed hosting, the optional `.htaccess` file enables HTTPS/canonical-host redirects, the custom 404 route, basic security headers and static-asset caching. Remove or adapt the host-specific redirect if you deploy under a different domain. Vercel and Netlify ignore `.htaccess`.
-5. Review the OpenWeather API key used by the separate Dynamic Weather Dashboard project. Never copy it into this portfolio; restrict or proxy the key in the weather application itself.
-6. Configure HTTPS, the preferred canonical domain and the custom 404 route with the hosting provider. Submit `sitemap.xml` in Google Search Console after deployment.
-7. Run Lighthouse and a browser smoke test on the deployed domain. The local static checks do not replace a production-host test.
-
-## Verification performed on this package
-
-- All 12 HTML pages passed parsing, title/description/canonical checks, main-landmark checks, duplicate-ID checks, image-alt checks, local-asset checks and local-fragment checks. The 11 indexable pages have unique canonical URLs; the custom 404 page is noindex.
-- All 9 JavaScript files passed `node --check`. The full stylesheet parsed with `tinycss2` without parser errors. `project-manifest.json`, `site.webmanifest`, sitemap XML and inline JSON-LD parsed successfully.
-- Four technical-skill groups and four repository cards are present. Skill groups link to relevant project/learning evidence. Every case study retains its demo and source-code actions. The four repository cards match the four repositories pinned on the public GitHub profile during the 29 October 2026 review.
-- The résumé CTA is visible at 1440, 1024, 768, 390, 360 and 320 CSS pixels. Chromium checks found no horizontal overflow at those widths and reported no page JavaScript errors. The 390px viewport screenshot also confirmed the compact `CV` control, logo and menu.
-- Browser interaction tests exercised the GitHub public API integration with mock responses (public repo count, follower count, recent PushEvent), the contact form success state with a mock mail response, mobile-menu open/close, and reveal visibility for all four skill cards and four repository cards. Mock responses verify the frontend flow, not live third-party availability or actual email delivery.
-- PHP lint passed for `contact.php`. Endpoint tests returned 405 for GET, 422 for an invalid email, 403 for a foreign Origin, and 200 for a filled honeypot. A valid message reached PHP `mail()` but returned 503 because this test environment has no configured outbound mail transport. The form's success state was verified separately with a mocked successful response.
-- A local HTTP smoke test checked 42 distinct same-origin page/asset paths. All returned successful responses; `GET /contact.php` correctly returned 405 because the endpoint accepts POST only.
-- ZIP integrity was checked after packaging.
-
-## Remaining deployment checks
-
-- Review the Edunet PDF before making it public: the original contains a student identifier. Publish it unchanged only if you are comfortable making that identifier public; otherwise prepare a redacted public copy while retaining your private original.
-- Add each additional certificate file and catalogue record using `assets/certificates/README.md`. PDF entries need a first-page preview image; image entries can use a resized copy of the original as the preview.
-- Add genuine project screenshots and YouTube video IDs when ready. No project video IDs were supplied in the uploaded package.
-- Recheck external project demos, repositories, authentication and APIs on their actual hosted services. Local portfolio tests do not certify those systems.
-- Verify root-path routing, HTTPS redirects, headers and the custom 404 page on the actual hosting provider. Run Lighthouse and a browser check on the deployed domain.
-
-**Result:** Static validation and in-memory browser interaction checks passed. Final deployment sign-off remains dependent on the manual checks above.
-
-## Project galleries and walkthrough videos
-
-Each case-study page includes a large preview frame and a clickable gallery. Selecting a gallery image updates the large frame. When a YouTube ID is configured, a `Watch walkthrough` control appears over that frame; the video loads only after the visitor clicks it. The embed uses YouTube's privacy-enhanced `youtube-nocookie.com` host.
-
-To connect a video after publishing it, edit `assets/js/project-media-config.js` and replace the empty value for the matching project with either the 11-character YouTube video ID or a YouTube URL. Example:
-
-```js
-"job-portal": "https://youtu.be/VIDEO_ID"
+```bash
+npm run check
+npm test
 ```
 
-Edit only that project's empty value; keep the other project keys in the object. The embedded YouTube player may still display YouTube branding; current YouTube documentation states that the old `modestbranding` parameter is deprecated and has no effect. The portfolio does not add a separate YouTube logo, title, or outbound player link.
+The project has no runtime npm dependencies. The tests mock the Resend API; they do not deliver real email.
 
-## Education and experience pages
+## Contact form — Vercel + Resend
 
-The homepage Journey section links to detail pages for BCA (United University), online MCA (Chandigarh University) and the Edunet Foundation frontend internship. MCA is labelled in progress. The Edunet Foundation internship PDF is included in `assets/certificates/` and can be viewed both from the experience page and the certificate library.
+The homepage posts URL-encoded form data to `/api/contact`. The Vercel Node.js Function validates the request, applies a honeypot and a best-effort in-memory rate limit, then sends a plain-text email using the Resend HTTP API. Visitor messages are not stored in a database.
 
-## Replace illustrative project images
+Configure these exact variable names in **Vercel → Project → Settings → Environment Variables**, with the `Production` environment selected:
 
-Replace the current illustrative previews with actual project screenshots only when you have permission to publish them. Keep the filenames referenced by each gallery button and update the matching `alt` text and caption in the relevant `projects/*.html` page. The Job Portal student and recruiter images are sample workflow illustrations, not actual screen captures.
+| Variable | Value |
+|---|---|
+| `RESEND_API_KEY` | A private API key created in Resend. Never expose it in frontend code or commit it to Git. |
+| `CONTACT_FROM_EMAIL` | A Resend-verified sender, e.g. `Prabhansh Tiwari <website@your-verified-domain.com>`. The domain must be verified in Resend. |
+| `CONTACT_TO_EMAIL` | The inbox that should receive enquiries, e.g. `prabhansh.dev@gmail.com`. |
 
-## Motion and accessibility
+Before using the form in production:
 
-The site uses subtle entrance reveals and hover transitions. `prefers-reduced-motion: reduce` disables those effects. The reveal logic is progressive enhancement: content remains visible if JavaScript or IntersectionObserver is unavailable.
+1. Verify your sending domain in Resend and publish the SPF/DKIM DNS records Resend provides.
+2. Set `CONTACT_FROM_EMAIL` to an address on that verified domain. Do not use a visitor's email address as the sender; the visitor address is set as `reply_to` so you can reply directly.
+3. Set `CONTACT_TO_EMAIL` to the inbox where you want to receive messages.
+4. Save the variables and redeploy Production. Vercel applies environment-variable changes to new deployments, not deployments that already exist.
+5. Submit a real test from `https://www.prabhanshtiwari.com/` and verify receipt in the target inbox, including Spam/Promotions.
 
-## Certificate library
+The browser form reports success only when the function receives a successful response from Resend. A successful API response means Resend accepted the message for sending; it is not a guarantee that the recipient's provider placed it in the inbox.
 
-The certificate gallery is available at `/certificates.html`. Add certificate files under `assets/certificates/` and add their metadata in `assets/js/certificates-data.js`. See `assets/certificates/README.md` for the schema, thumbnail workflow, orientation handling and examples. The original certificate file is always used in the viewer; thumbnails are only for the grid.
+### Contact endpoint behavior
 
-## Contact form setup (Vercel / Resend)
+- `POST` only; other methods receive `405`.
+- Same-host Origin validation when the browser sends an Origin header.
+- 24 KB request-body cap.
+- Name, email, topic and message validation on the server.
+- Hidden honeypot field; spam submissions are acknowledged but not forwarded.
+- Best-effort limit of three real submissions per IP in ten minutes per warm function instance. This is not a distributed rate limiter; for high-volume abuse, add Vercel Firewall rate limiting or a durable rate-limit store.
+- Generic delivery errors are returned to visitors. Provider status details are written to Vercel Function logs without logging message content or API credentials.
 
-The live Vercel site submits the contact form to `/api/contact` (Node.js serverless function). It validates the fields and same-origin request, uses a hidden honeypot, applies a best-effort in-memory per-IP rate limit, and sends mail through the Resend API. No visitor messages are stored in a database.
+The PHP file `contact.php` is retained only as a fallback for PHP-capable hosting. Vercel uses `api/contact.mjs`; it does not execute PHP.
 
-To enable delivery on Vercel:
+## Project configuration and assets
 
-1. Create a Resend account and verify a sending domain. Add the SPF/DKIM records Resend provides at your DNS host.
-2. Create a Resend API key. Never put it in HTML, JavaScript, GitHub or `site-config.js`.
-3. In Vercel → Project → Settings → Environment Variables, add `RESEND_API_KEY`, `CONTACT_FROM_EMAIL`, and (optionally) `CONTACT_TO_EMAIL`.
-4. Set `CONTACT_FROM_EMAIL` to a sender identity verified in Resend (for example, `Prabhansh Tiwari <hello@your-verified-domain>`). `CONTACT_TO_EMAIL` defaults to `prabhansh.dev@gmail.com` if omitted.
-5. Apply the variables to Production (and Preview if you want to test previews), then redeploy. Submit a real test and verify that it arrives in Inbox/Spam before treating delivery as confirmed.
+- `assets/js/site-config.js` contains public profile links, email, résumé URL and the contact endpoint. Never put secrets there.
+- `assets/js/projects.js` is the canonical project-card dataset for the project archive.
+- `project-manifest.json` mirrors project slugs, case-study pages and media paths.
+- `assets/images/profile/` contains the supplied profile photo.
+- `assets/images/projects/` contains current project previews. Some are illustrative concepts, not production screenshots; their labels and alt text make this distinction clear. Replace them with genuine screenshots you own or have permission to publish.
+- `assets/certificates/` contains the certificate library files. Review the Edunet PDF before publishing it because the source document may contain a student identifier.
 
-Without these environment variables, the endpoint returns a clear `503` response and the page retains its direct-email fallback. The in-memory rate limit is best-effort across warm function instances; it is not a distributed abuse-prevention system.
+## Deployment notes
 
-For Apache/LiteSpeed or Hostinger PHP hosting, the original `contact.php` remains available. Change `contactEndpoint` in `assets/js/site-config.js` from `/api/contact` to `/contact.php`, keep the form action aligned, configure PHP 8.1+ and a verified `PORTFOLIO_CONTACT_FROM` sender, and test real delivery. Vercel does not execute the PHP file; it uses `api/contact.mjs`.
+1. Deploy the contents of this folder as the Vercel project root. `index.html` must be at the root and `api/contact.mjs` must remain inside `/api`.
+2. Do not upload `.env` files, API keys, or the local `node_modules` directory.
+3. Vercel ignores `.htaccess`; configure canonical-domain redirects and security headers in Vercel project/domain settings if needed. The `.htaccess` file is retained for Apache/LiteSpeed hosting only.
+4. Confirm the public résumé URL, social URLs and project demo URLs still work.
+5. Verify the contact form using a real Production deployment and inspect Vercel Function logs if delivery fails.
+6. Run a browser smoke test and Lighthouse on the deployed domain. Automated local tests do not replace a production-host test.
 
-## Résumé visibility
+## Accessibility and UI behavior
 
-A résumé CTA is present in the sticky header on desktop, tablet and mobile, and in the mobile menu. The URL is controlled centrally by `assets/js/site-config.js` (`resumeUrl`). The existing Google Drive URL is retained. Replace it with a public PDF URL on your domain when you have a website-hosted résumé.
-
-## Skills and GitHub section
-
-The skills section deliberately avoids self-assessed percentage bars. Each technology group links to relevant project evidence or the learning section. The four repository cards in `index.html` mirror the repositories visible in the GitHub profile’s pinned area at the time of the October 29, 2026 review: `chai-aur-react`, `chai-aur-javascript`, `Portfolio` and `jobPortal`. Edit their cards when you change the pinned selection on GitHub. `assets/js/github.js` reads public repository metadata, public events and profile follower count from GitHub's unauthenticated REST API. It caches successful data in the visitor's browser for 30 minutes and keeps all static repository links usable when the API is unavailable or rate-limited. It does not use a token or expose private activity. GitHub's unauthenticated API has rate limits; the live activity panel is an enhancement, not a dependency for the page.
-
-## SEO and search visibility
-
-- The canonical host is `https://www.prabhanshtiwari.com`; the apex domain is configured in Vercel to redirect to `www`. Canonical tags, Open Graph URLs, Twitter image URLs and first-party JSON-LD URLs should use this same host.
-- `sitemap.xml` is UTF-8 XML with its declaration at byte zero and lists the 11 indexable content pages. The 404 page is deliberately excluded and marked `noindex, follow`.
-- Every sitemap URL uses the `www` canonical hostname and matches one of the 11 canonical HTML pages exactly. The XML declaration starts at byte zero and the file has no UTF-8 BOM.
-- `robots.txt` allows crawling and advertises the www sitemap. Do not add `Disallow: /`.
-- Indexable pages use unique titles/descriptions, canonical URLs, Open Graph/Twitter cards and JSON-LD where relevant. The shared social preview is 1200×630.
-- Search engines decide when and whether to crawl/index pages. Sitemap submission and valid metadata do not guarantee indexing, ranking or a #1 result. After deployment, use Google Search Console and Bing Webmaster Tools to inspect the www canonical URLs, review crawl/index coverage and request recrawls when necessary.
+The site uses semantic landmarks, keyboard-visible focus states, a skip link, responsive navigation, accessible form status announcements, descriptive image alternatives and reduced-motion support. The theme preference is stored locally when browser storage is available. The homepage has no dependency on the GitHub API or a third-party widget to render its main content.

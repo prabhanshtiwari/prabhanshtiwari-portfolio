@@ -1,0 +1,13 @@
+{
+  "name": "prabhansh-tiwari-portfolio",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check api/contact.mjs && node --check assets/js/archive.js && node --check assets/js/certificates-data.js && node --check assets/js/certificates.js && node --check assets/js/contact.js && node --check assets/js/github.js && node --check assets/js/interactions.js && node --check assets/js/main.js && node --check assets/js/project-media-config.js && node --check assets/js/projects.js && node --check assets/js/site-config.js && node --check assets/js/theme-init.js"
+  }
+}

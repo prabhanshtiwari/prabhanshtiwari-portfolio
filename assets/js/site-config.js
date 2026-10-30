@@ -4,7 +4,6 @@ window.PORTFOLIO_CONFIG = {
   email: "prabhansh.dev@gmail.com",
   github: "https://github.com/prabhanshtiwari",
   githubUsername: "prabhanshtiwari",
-  contactEndpoint: "/api/contact",
   linkedin: "https://www.linkedin.com/in/prabhanshtiwari",
   devto: "https://dev.to/prabhanshtiwari",
   resumeUrl:
