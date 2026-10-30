@@ -1842,7 +1842,7 @@ h3 {
 }
 .footer-layout {
   display: grid;
-  grid-template-columns: minmax(220px, 1.5fr) repeat(3, minmax(120px, 1fr));
+  grid-template-columns: minmax(240px, 1.5fr) repeat(2, minmax(140px, 1fr));
   gap: 34px;
 }
 .footer-intro {
@@ -1883,6 +1883,27 @@ h3 {
   color: var(--text);
   font-size: 11px;
   font-weight: 650;
+}
+.footer-column .footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.footer-social-link svg {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 14px;
+}
+.footer-dev-mark {
+  display: inline-grid;
+  width: 14px;
+  height: 14px;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  font-size: 6px;
+  font-weight: 900;
+  line-height: 1;
 }
 .footer-column a:hover,
 .footer-bottom a:hover {
@@ -1931,11 +1952,12 @@ h3 {
     grid-column: 1/-1;
   }
   .footer-layout {
-    grid-template-columns: 1.3fr 1fr 1fr;
+    grid-template-columns: minmax(220px, 1.3fr) repeat(2, minmax(130px, 1fr));
+    gap: 28px;
   }
   .footer-intro {
-    grid-column: 1/-1;
-    max-width: 460px;
+    grid-column: auto;
+    max-width: 360px;
   }
 }
 @media (max-width: 760px) {
@@ -4746,5 +4768,34 @@ h3 {
   .home-project-card:hover,
   .home-socials a:hover {
     transform: none;
+  }
+}
+
+/* Site-wide header consistency: identical navigation geometry on every route. */
+.site-header .nav-wrap,
+.site-header .mobile-nav {
+  width: min(1120px, calc(100% - 64px));
+  margin-inline: auto;
+}
+
+@media (max-width: 760px) {
+  .site-header .nav-wrap,
+  .site-header .mobile-nav {
+    width: min(1120px, calc(100% - 40px));
+  }
+}
+
+@media (max-width: 560px) {
+  .site-header .nav-wrap,
+  .site-header .mobile-nav {
+    width: calc(100% - 36px);
+  }
+
+  .home-header .nav-wrap {
+    gap: 10px;
+  }
+
+  .home-header .nav-actions {
+    gap: 5px;
   }
 }
